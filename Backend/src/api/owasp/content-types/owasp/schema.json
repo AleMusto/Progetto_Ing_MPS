@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "mvcs",
+  "collectionName": "owasps",
   "info": {
-    "singularName": "mvc",
-    "pluralName": "mvcs",
-    "displayName": "MVC"
+    "singularName": "owasp",
+    "pluralName": "owasps",
+    "displayName": "OWASP"
   },
   "options": {
     "draftAndPublish": true
@@ -18,7 +18,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::pattern.pattern",
-      "mappedBy": "mvcs"
+      "mappedBy": "owasps"
     }
   }
 }

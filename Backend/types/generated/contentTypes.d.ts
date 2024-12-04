@@ -393,6 +393,36 @@ export interface ApiArticoloGdprArticoloGdpr
     > &
       Schema.Attribute.Private;
     Nome: Schema.Attribute.String;
+    patterns: Schema.Attribute.Relation<'manyToMany', 'api::pattern.pattern'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFaseIsoFaseIso extends Struct.CollectionTypeSchema {
+  collectionName: 'fase_isos';
+  info: {
+    displayName: 'FaseISO';
+    pluralName: 'fase-isos';
+    singularName: 'fase-iso';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fase-iso.fase-iso'
+    > &
+      Schema.Attribute.Private;
+    Nome: Schema.Attribute.String;
+    patterns: Schema.Attribute.Relation<'manyToMany', 'api::pattern.pattern'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -418,6 +448,33 @@ export interface ApiMvcMvc extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::mvc.mvc'> &
       Schema.Attribute.Private;
     Nome: Schema.Attribute.String;
+    patterns: Schema.Attribute.Relation<'manyToMany', 'api::pattern.pattern'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOwaspOwasp extends Struct.CollectionTypeSchema {
+  collectionName: 'owasps';
+  info: {
+    displayName: 'OWASP';
+    pluralName: 'owasps';
+    singularName: 'owasp';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::owasp.owasp'> &
+      Schema.Attribute.Private;
+    Nome: Schema.Attribute.String;
+    patterns: Schema.Attribute.Relation<'manyToMany', 'api::pattern.pattern'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -437,19 +494,38 @@ export interface ApiPatternPattern extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    articolo_gdprs: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::articolo-gdpr.articolo-gdpr'
+    >;
     Contesto: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    cwes: Schema.Attribute.Relation<'manyToMany', 'api::top25-cwe.top25-cwe'>;
     Descrizione: Schema.Attribute.Blocks;
     Esempio: Schema.Attribute.Blocks;
+    fase_isos: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::fase-iso.fase-iso'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::pattern.pattern'
     > &
       Schema.Attribute.Private;
+    mvcs: Schema.Attribute.Relation<'manyToMany', 'api::mvc.mvc'>;
+    owasps: Schema.Attribute.Relation<'manyToMany', 'api::owasp.owasp'>;
+    principio_pbds: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::principio-pbd.principio-pbd'
+    >;
     publishedAt: Schema.Attribute.DateTime;
+    stretegias: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::stretegia.stretegia'
+    >;
     Titolo: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
@@ -481,6 +557,7 @@ export interface ApiPrincipioPbdPrincipioPbd
     > &
       Schema.Attribute.Private;
     Nome: Schema.Attribute.String;
+    patterns: Schema.Attribute.Relation<'manyToMany', 'api::pattern.pattern'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -511,6 +588,37 @@ export interface ApiStretegiaStretegia extends Struct.CollectionTypeSchema {
     Nome: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    patterns: Schema.Attribute.Relation<'manyToMany', 'api::pattern.pattern'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTop25CweTop25Cwe extends Struct.CollectionTypeSchema {
+  collectionName: 'top25_cwes';
+  info: {
+    description: '';
+    displayName: 'CWE';
+    pluralName: 'top25-cwes';
+    singularName: 'top25-cwe';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::top25-cwe.top25-cwe'
+    > &
+      Schema.Attribute.Private;
+    Nome: Schema.Attribute.String;
+    patterns: Schema.Attribute.Relation<'manyToMany', 'api::pattern.pattern'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1028,10 +1136,13 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::articolo-gdpr.articolo-gdpr': ApiArticoloGdprArticoloGdpr;
+      'api::fase-iso.fase-iso': ApiFaseIsoFaseIso;
       'api::mvc.mvc': ApiMvcMvc;
+      'api::owasp.owasp': ApiOwaspOwasp;
       'api::pattern.pattern': ApiPatternPattern;
       'api::principio-pbd.principio-pbd': ApiPrincipioPbdPrincipioPbd;
       'api::stretegia.stretegia': ApiStretegiaStretegia;
+      'api::top25-cwe.top25-cwe': ApiTop25CweTop25Cwe;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

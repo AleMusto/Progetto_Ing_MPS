@@ -1,10 +1,11 @@
 {
   "kind": "collectionType",
-  "collectionName": "mvcs",
+  "collectionName": "top25_cwes",
   "info": {
-    "singularName": "mvc",
-    "pluralName": "mvcs",
-    "displayName": "MVC"
+    "singularName": "top25-cwe",
+    "pluralName": "top25-cwes",
+    "displayName": "CWE",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,7 +19,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::pattern.pattern",
-      "mappedBy": "mvcs"
+      "mappedBy": "cwes"
     }
   }
 }

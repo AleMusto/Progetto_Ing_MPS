@@ -25,6 +25,48 @@
     },
     "Contesto": {
       "type": "blocks"
+    },
+    "articolo_gdprs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::articolo-gdpr.articolo-gdpr",
+      "inversedBy": "patterns"
+    },
+    "stretegias": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::stretegia.stretegia",
+      "inversedBy": "patterns"
+    },
+    "fase_isos": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::fase-iso.fase-iso",
+      "inversedBy": "patterns"
+    },
+    "principio_pbds": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::principio-pbd.principio-pbd",
+      "inversedBy": "patterns"
+    },
+    "mvcs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::mvc.mvc",
+      "inversedBy": "patterns"
+    },
+    "cwes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::top25-cwe.top25-cwe",
+      "inversedBy": "patterns"
+    },
+    "owasps": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::owasp.owasp",
+      "inversedBy": "patterns"
     }
   }
 }

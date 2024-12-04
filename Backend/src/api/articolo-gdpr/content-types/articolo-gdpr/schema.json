@@ -17,6 +17,12 @@
     },
     "Link": {
       "type": "string"
+    },
+    "patterns": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::pattern.pattern",
+      "mappedBy": "articolo_gdprs"
     }
   }
 }

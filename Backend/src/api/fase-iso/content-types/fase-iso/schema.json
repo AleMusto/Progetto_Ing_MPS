@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "mvcs",
+  "collectionName": "fase_isos",
   "info": {
-    "singularName": "mvc",
-    "pluralName": "mvcs",
-    "displayName": "MVC"
+    "singularName": "fase-iso",
+    "pluralName": "fase-isos",
+    "displayName": "FaseISO"
   },
   "options": {
     "draftAndPublish": true
@@ -18,7 +18,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::pattern.pattern",
-      "mappedBy": "mvcs"
+      "mappedBy": "fase_isos"
     }
   }
 }

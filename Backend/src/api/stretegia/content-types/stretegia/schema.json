@@ -15,6 +15,12 @@
       "type": "string",
       "required": true,
       "unique": true
+    },
+    "patterns": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::pattern.pattern",
+      "mappedBy": "stretegias"
     }
   }
 }
