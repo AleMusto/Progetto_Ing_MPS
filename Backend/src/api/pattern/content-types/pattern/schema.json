@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "patterns",
+  "info": {
+    "singularName": "pattern",
+    "pluralName": "patterns",
+    "displayName": "Pattern",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titolo": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Descrizione": {
+      "type": "blocks"
+    },
+    "Esempio": {
+      "type": "blocks"
+    },
+    "Contesto": {
+      "type": "blocks"
+    }
+  }
+}

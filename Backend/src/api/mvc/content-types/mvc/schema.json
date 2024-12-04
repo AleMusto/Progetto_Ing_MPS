@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mvcs",
+  "info": {
+    "singularName": "mvc",
+    "pluralName": "mvcs",
+    "displayName": "MVC"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nome": {
+      "type": "string"
+    }
+  }
+}

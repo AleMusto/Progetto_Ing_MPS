@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "articolo_gdprs",
+  "info": {
+    "singularName": "articolo-gdpr",
+    "pluralName": "articolo-gdprs",
+    "displayName": "ArticoloGDPR",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nome": {
+      "type": "string"
+    },
+    "Link": {
+      "type": "string"
+    }
+  }
+}

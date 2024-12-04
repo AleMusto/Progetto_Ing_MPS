@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "principio_pbds",
+  "info": {
+    "singularName": "principio-pbd",
+    "pluralName": "principio-pbds",
+    "displayName": "PrincipioPBD"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nome": {
+      "type": "string"
+    }
+  }
+}
