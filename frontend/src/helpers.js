@@ -35,36 +35,44 @@ Protector.propTypes = {
 }
 
 export const getCampiUnici = (data) => {
+  if (!data) {
+    console.error("Data is undefined or null");
+    return []; // Return an empty array or default value
+  }
+
   const fields = {};
 
   data.forEach(item => {
-    Object.entries(item.attributes).forEach(([field, value]) => {
-      // Skip the 'user' and 'pattern-buffers' field
-      if (field === 'user' || field === 'pattern-buffers') {
+    // Iterate over all fields of each item
+    Object.entries(item).forEach(([field, value]) => {
+      // Skip non-relevant fields (e.g., 'user' and 'pattern-buffers')
+      if (field === 'user' || field === 'pattern-buffers' || field === 'createdAt' || field === 'updatedAt' || field === 'publishedAt') {
         return;
       }
 
-      if (value?.data) {
-        const dataArray = Array.isArray(value.data) ? value.data : [value.data];
-        dataArray.forEach(nestedItem => {
-          Object.entries(nestedItem.attributes).forEach(([subField, subValue]) => {
-            if (subField === 'nome') {
-              if (!fields[field]) {
-                fields[field] = {
-                  values: new Set(),
-                  ids: new Set() // Utilizza un Set per tenere traccia degli ID unici
-                };
+      // Process "Descrizione" and "Esempio" fields which are arrays of objects
+      if (Array.isArray(value)) {
+        value.forEach(nestedItem => {
+          if (nestedItem.children && Array.isArray(nestedItem.children)) {
+            nestedItem.children.forEach(child => {
+              if (child.type === 'text' && child.text) {
+                if (!fields[field]) {
+                  fields[field] = {
+                    values: new Set(),
+                    ids: new Set(),
+                  };
+                }
+                fields[field].values.add(child.text);  // Add text content
+                fields[field].ids.add(item.id);  // Track the parent item's ID
               }
-              fields[field].values.add(subValue);
-              fields[field].ids.add(nestedItem.id); // Aggiungi l'id del sottocampo al Set
-            }
-          });
+            });
+          }
         });
       }
     });
   });
 
-  // Converte i Set in array prima di restituire i campi
+  // Convert sets to arrays before returning
   Object.keys(fields).forEach(field => {
     fields[field].ids = Array.from(fields[field].ids);
   });
