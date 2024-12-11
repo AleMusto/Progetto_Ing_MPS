@@ -1,0 +1,308 @@
+.accordion-parent {
+  border-radius: 3px;
+  background-color: white;
+  box-shadow: 0 1px 2px #00000033;
+}
+.accordion {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+}
+.accordion .toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  padding: 10px 15px;
+  fill: black;
+  color: black;
+  transition: color 0.15s ease, fill 0.15s ease;
+  font-weight: 600;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+.accordion .toggle:hover {
+  color: #6d6d6d;
+  fill: #6d6d6d;
+}
+.accordion:first-child .toggle {
+  border-bottom: 0;
+}
+.accordion .toggle .direction-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  font-weight: 600;
+}
+.accordion .content-parent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.15s ease-out;
+  color: black;
+  border-bottom: 1px solid #aaa;
+}
+.accordion.toggled .content-parent {
+  max-height: 500px;
+  transition: max-height 0.25s ease-in;
+}
+.accordion .content {
+  padding: 10px 15px;
+}
+
+/* Nascondi la checkbox originale */
+.custom-checkbox {
+  display: none;
+}
+
+/* Stile per l'etichetta della checkbox */
+.custom-checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  padding-left: 25px; /* per spostare la checkbox dal testo */
+  margin-right: 10px;
+  user-select: none;
+  vertical-align: middle;
+  line-height: 1.5; /* altezza della linea */
+  font-size: 0.9rem; /* dimensione del testo */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px; /* imposta una larghezza massima */
+}
+
+/* Stile per il quadrato della checkbox */
+.custom-checkbox-label::before {
+  content: '';
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 1px solid black;
+  border-radius: 3px;
+  position: absolute;
+  left: 0; /* Posiziona la checkbox a sinistra */
+  top: 50%;
+  transform: translateY(-50%);
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+/* Colore viola quando la checkbox è spuntata */
+.custom-checkbox:checked + .custom-checkbox-label::before {
+  background-color: #8e2ad6;
+}
+
+/* Mantieni l'allineamento del testo */
+.custom-checkbox-label span {
+  display: inline-flex;
+  vertical-align:middle;
+  line-height: 1.5; /* Aggiungi questa linea per garantire che il testo sia allineato verticalmente */
+  font-size: 0.9rem; /* Riduci la dimensione del testo */
+}
+
+/* Mostra tutto il testo quando si passa sopra con il puntatore */
+.custom-checkbox-label:hover {
+  white-space: normal;
+  overflow:visible;
+  text-overflow:clip;
+  background-color: #f1f1f1; /* Aggiungi un colore di sfondo se necessario */
+  z-index: 1;
+  position: relative;
+}
+
+.custom-checkbox:checked + .custom-checkbox-label {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+.container {
+  display: flex;
+  justify-content: flex-start; /* Allinea gli elementi a sinistra */
+  align-items: flex-start; /* Allinea gli elementi in alto */
+  height: 100vh; /* Altezza del viewport */
+  padding: 20px;
+}
+
+.side-menu {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.accordion-parent {
+  width: 100%;
+}
+
+.pattern-form-container {
+  display: flex;
+  justify-content: center; /* Centra il pattern form orizzontalmente */
+  align-items: flex-start; /* Allinea il pattern form in alto */
+  flex: 1;
+  margin-top: 20px;
+  margin-left: 300px;
+}
+
+
+textarea {
+  resize: none; /* Disabilita il ridimensionamento */
+}
+
+
+
+button.richiesta-button {
+  padding: 10px 20px; 
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  font-size: 1em;
+  color: white;
+  background-color: #8e2ad6;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+button.richiesta-button:hover {
+  background-color: #621f92;
+  color: #f1f1f1;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.pattern-form form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  background-color: rgba(202, 202, 202, 0.4);
+  border-radius: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.pattern-form label {
+  margin-bottom: 10px;
+}
+
+
+/* Stile per il contenitore principale */
+.pattern-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 300px;
+}
+
+/* Stile per l'intestazione */
+.pattern-form-container h1 {
+  font-size: 2em;
+  color: #4a4a4a;
+  margin-bottom: 20px;
+}
+
+/* Stile per il contenitore del selettore e del pulsante */
+.pattern-select-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Stile per il selettore */
+.pattern-select {
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  font-size: 1em;
+  color: #333;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.pattern-select:focus {
+  border-color: #8e2ad6;
+  box-shadow: 0 0 10px rgba(142, 42, 214, 0.5);
+  outline: none;
+}
+
+/* Stile per il pulsante di eliminazione */
+button.richiesta-button {
+  padding: 10px 20px; 
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  font-size: 1em;
+  color: white;
+  background-color: #8e2ad6;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+button.richiesta-button:hover {
+  background-color: #621f92;
+  color: #f1f1f1;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+/* Stile per il messaggio */
+.message {
+  margin-top: 20px;
+  font-size: 1em;
+  color: #e74c3c;
+}
+
+/* Stile per il popup di conferma */
+.confirmation-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  background-color: white;
+  z-index: 1000;
+  text-align: center;
+}
+
+.confirmation-popup p {
+  margin-bottom: 20px;
+  font-size: 1.2em;
+}
+
+.confirmation-popup button {
+  margin: 5px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  font-size: 1em;
+  color: white;
+  background-color: #8e2ad6;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.confirmation-popup button:hover {
+  background-color: #621f92;
+  color: #f1f1f1;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.pattern-form input {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+
+.pattern-form textarea {
+  height: 150px;
+  width: 400px;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
